@@ -50,8 +50,7 @@ public class TestFastActivity extends AppCompatActivity {
     };
 
     public void decodeAlbum(View v) {
-  /*
-                从相册选取二维码图片，这里为了方便演示，使用的是
+                /*从相册选取二维码图片，这里为了方便演示，使用的是
                 https://github.com/bingoogolapple/BGAPhotoPicker-Android
                 这个库来从图库中选择二维码图片，这个库不是必须的，你也可以通过自己的方式从图库中选择图片
                  */

@@ -45,7 +45,7 @@
 
 ```groovy
 dependencies {
-  implementation 'com.github.parry-li:zbar_qr_code:Tag'
+    implementation 'com.github.parry-li.zbar_qr_code:zbar:1.1'
 }
 ```
 ## 整合方式

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import cn.parry.qrcode.core.BarcodeType;
 import cn.parry.qrcode.core.QRCodeView;
 
 import static android.content.Context.VIBRATOR_SERVICE;
@@ -84,13 +85,11 @@ public class CaptureFragment extends Fragment implements QRCodeView.Delegate {
     public void onCameraAmbientBrightnessChanged(boolean isDark) {
         // 这里是通过修改提示文案来展示环境是否过暗的状态，接入方也可以根据 isDark 的值来实现其他交互效果
         String tipText = mZBarView.getScanBoxView().getTipText();
-        String ambientBrightnessTip = new String();
-        if (!TextUtils.isEmpty(tipText)) {
-            ambientBrightnessTip += "\n";
-        }
-        ambientBrightnessTip += "环境过暗，请打开闪光灯";
+
+        String  ambientBrightnessTip = "\n环境过暗，请打开闪光灯\n";
         if (isDark) {
             if (!tipText.contains(ambientBrightnessTip)) {
+
                 mZBarView.getScanBoxView().setTipText(tipText + ambientBrightnessTip);
             }
         } else {
@@ -115,4 +114,54 @@ public class CaptureFragment extends Fragment implements QRCodeView.Delegate {
     public void decodeFromAlbum(String imagePath) {
         mZBarView. decodeQRCode(imagePath);
     }
+
+
+    public ZBarView getZbarView(){
+      return mZBarView;
+    }
+
+    // 打开后置摄像头开始预览
+    public void startCamera(){
+        mZBarView.startCamera();
+    }
+    // 关闭摄像头预览，并且隐藏扫描框
+    public void stopCamera(){
+        mZBarView.stopCamera();
+    }
+    // 开始识别
+    public void startSpot(){
+        mZBarView.startSpot();
+    }
+    // 停止识别
+    public void stopSpot(){
+        mZBarView.stopSpot();
+    }
+    // 显示扫描框
+    public void startSpotAndShowRect(){
+        mZBarView.startSpotAndShowRect();
+    }
+    // 隐藏扫描框
+    public void hiddenScanRect(){
+        mZBarView.hiddenScanRect();
+    }
+    // 仅识别扫描框中的码
+    public void setOnlyDecodeScanBoxArea(boolean b){
+        mZBarView.getScanBoxView().setOnlyDecodeScanBoxArea(b);
+    }
+    // true 仅识别扫描框中的码 false 识别整个屏幕中的码
+    public void setOnlyDecodeScanBoxArea(){
+        mZBarView.getScanBoxView().setOnlyDecodeScanBoxArea(true);
+    }
+
+    // 打开闪光灯
+    public void openFlashlight(){
+        mZBarView.openFlashlight();
+    }
+    // 关闭闪光灯
+    public void closeFlashlight(){
+        mZBarView.closeFlashlight();
+    }
+
+
+
 }
