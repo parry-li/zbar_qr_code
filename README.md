@@ -45,13 +45,13 @@
 
 ```groovy
 dependencies {
-    implementation ''
+  implementation 'com.github.parry-li:zbar_qr_code:Tag'
 }
 ```
 ## 整合方式
 #### 1.方式一：快速集成，几行代码就可以整合。扫描组件是通过Fragment实现的，所以能够很轻松的实现扫描UI的定制化。
 
-- 在新的Activity中定义Layout布局文件
+#####  在新的Activity中定义Layout布局文件
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -70,7 +70,7 @@ dependencies {
 
 启动id为fl_my_container的FrameLayout就是我们需要替换的扫描组件，也就是说我们会将我们定义的扫描Fragment替换到id为fl_my_container的FrameLayout的位置。而上面的button是我们添加的一个额外的控件，在这里你可以添加任意的控件，各种UI效果等。具体可以看下面在Activity的初始化过程。
 
-- 在Activity中执行Fragment的初始化操作
+#####  在Activity中执行Fragment的初始化操作
 
 ```
    @Override
@@ -159,9 +159,9 @@ dependencies {
 
 ```
 
-属性在下面有进行讲解
+##### 属性在下面有进行讲解
 
-- 生成二维码图片，样式很多，集体查看testGenerateActivity
+#####  生成二维码图片，样式很多，集体查看testGenerateActivity
 
 ```
 CaptureUtils.AsyncTaskCallback asyncTaskCallback  = new CaptureUtils.AsyncTaskCallback() {
@@ -184,7 +184,7 @@ CaptureUtils.AsyncTaskCallback asyncTaskCallback  = new CaptureUtils.AsyncTaskCa
 #### 方式二：自定义，请按照以下方法或者查看TestScanActivity
 
 
--  布局文件
+#####  布局文件
 
 ```xml
     <cn.parry.qrcode.zbar.ZBarView
@@ -218,7 +218,7 @@ CaptureUtils.AsyncTaskCallback asyncTaskCallback  = new CaptureUtils.AsyncTaskCa
         app:qrcv_verticalBias="-1" />
 ```
 
--  自定义属性说明
+#####   自定义属性说明
 
 属性名 | 说明 | 默认值
 :----------- | :----------- | :-----------
@@ -257,7 +257,7 @@ qrcv_isOnlyDecodeScanBoxArea         | 是否只识别扫描框中的码        
 qrcv_isShowLocationPoint         | 是否显示定位点        | false
 qrcv_isAutoZoom         | 码太小时是否自动缩放        | false
 
--  接口说明
+#####  接口说明
 
 >QRCodeView
 
