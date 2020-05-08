@@ -6,8 +6,7 @@
 * [Gradle 依赖](#gradle-依赖)
 * [布局文件](#布局文件)
 * [自定义属性说明](#自定义属性说明)
-* [接口说明](#接口说明)
-* [关于我](#关于我)
+
 
 ***
 
@@ -28,13 +27,13 @@
 - [x]  识别图库中的条码、二维码图片
 - [x]  扫描条码、二维码
 - [x]  识别图库中的条码、二维码图片
-
+- [x]  支持反色二维码
 ***
 
 ## 常见问题
 #### 1.部分手机无法扫描出结果，扫描预览界面二维码被压缩
 
-使用的时候将 Toolbar 或者其他 View 盖在 ZBarView 或者 ZXingView 的上面，让 ZBarView 或者 ZXingView 填充屏幕宽高。
+使用的时候将 Toolbar 或者其他 View 盖在 ZBarView 让 ZBarView 填充屏幕宽高。
 
 #### 2.出现黑屏
 
@@ -49,9 +48,9 @@ dependencies {
     implementation ''
 }
 ```
+## 整合方式
+#### 1.方式一：快速集成，几行代码就可以整合。扫描组件是通过Fragment实现的，所以能够很轻松的实现扫描UI的定制化。
 
-
-##扫描组件是通过Fragment实现的，所以能够很轻松的实现扫描UI的定制化。
 - 在新的Activity中定义Layout布局文件
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -182,14 +181,10 @@ CaptureUtils.AsyncTaskCallback asyncTaskCallback  = new CaptureUtils.AsyncTaskCa
 
 
 
+#### 方式二：自定义，请按照以下方法或者查看TestScanActivity
 
 
-# 想要自己定义，请按照以下方法或者查看TestScanActivity
-
-
-
-## 布局文件
-
+-  布局文件
 
 ```xml
     <cn.parry.qrcode.zbar.ZBarView
@@ -223,7 +218,7 @@ CaptureUtils.AsyncTaskCallback asyncTaskCallback  = new CaptureUtils.AsyncTaskCa
         app:qrcv_verticalBias="-1" />
 ```
 
-## 自定义属性说明
+-  自定义属性说明
 
 属性名 | 说明 | 默认值
 :----------- | :----------- | :-----------
@@ -262,7 +257,7 @@ qrcv_isOnlyDecodeScanBoxArea         | 是否只识别扫描框中的码        
 qrcv_isShowLocationPoint         | 是否显示定位点        | false
 qrcv_isAutoZoom         | 码太小时是否自动缩放        | false
 
-## 接口说明
+-  接口说明
 
 >QRCodeView
 
