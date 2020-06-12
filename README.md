@@ -85,6 +85,13 @@ dependencies {
 
     }
 
+
+   // 开灯
+   captureFragment.openFlashlight();
+   
+   //关灯
+   captureFragment.closeFlashlight();
+   
 ```
 
 其中analyzeCallback是我们定义的扫描回调函数，其具体的定义：
