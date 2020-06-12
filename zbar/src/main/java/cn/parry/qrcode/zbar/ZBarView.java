@@ -193,7 +193,6 @@ public class ZBarView extends QRCodeView {
         return isAutoZoom() && barcodeFormat == com.google.zxing.BarcodeFormat.QR_CODE;
     }
     private String processData(Image barcode) {
-        Log.i("parry","processData");
         if (mScanner.scanImage(barcode) == 0) {
             return null;
         }
@@ -214,7 +213,7 @@ public class ZBarView extends QRCodeView {
             if (TextUtils.isEmpty(symData)) {
                 continue;
             }
-            Log.i("parry","processData"+symData);
+
             // 处理自动缩放和定位点
             boolean isNeedAutoZoom = isNeedAutoZoom(symbol);
             if (isShowLocationPoint() || isNeedAutoZoom) {
@@ -237,14 +236,12 @@ public class ZBarView extends QRCodeView {
     @Override
     protected ScanResult processBitmapData(Bitmap bitmap) {
         try {
-            Log.i("parry","processBitmapData");
             int picWidth = bitmap.getWidth();
             int picHeight = bitmap.getHeight();
             Image barcode = new Image(picWidth, picHeight, "RGB4");
             int[] pix = new int[picWidth * picHeight];
             bitmap.getPixels(pix, 0, picWidth, 0, 0, picWidth, picHeight);
             barcode.setData(pix);
-            Log.i("parry","processBitmapData.processData");
             String result = processData(barcode.convert("Y800"));
             return new ScanResult(result);
         } catch (Exception e) {
