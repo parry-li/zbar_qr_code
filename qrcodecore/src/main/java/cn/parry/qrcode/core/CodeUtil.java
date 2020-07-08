@@ -30,13 +30,17 @@ public class CodeUtil {
     }
 
     public static void d(String msg) {
-        d("parry", msg);
+        if (debug) {
+            d("parry", msg);
+        }
     }
 
     public static void printRect(String prefix, Rect rect) {
-        d("parry", prefix + " centerX：" + rect.centerX() + " centerY：" + rect.centerY() + " width：" + rect.width() + " height：" + rect.height()
-                + " rectHalfWidth：" + rect.width() / 2 + " rectHalfHeight：" + rect.height() / 2
-                + " left：" + rect.left + " top：" + rect.top + " right：" + rect.right + " bottom：" + rect.bottom);
+        if (debug) {
+            d("parry", prefix + " centerX：" + rect.centerX() + " centerY：" + rect.centerY() + " width：" + rect.width() + " height：" + rect.height()
+                    + " rectHalfWidth：" + rect.width() / 2 + " rectHalfHeight：" + rect.height() / 2
+                    + " left：" + rect.left + " top：" + rect.top + " right：" + rect.right + " bottom：" + rect.bottom);
+        }
     }
 
     public static void d(String tag, String msg) {

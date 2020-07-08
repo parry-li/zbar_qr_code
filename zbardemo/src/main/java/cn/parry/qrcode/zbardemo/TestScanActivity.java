@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ public class TestScanActivity extends AppCompatActivity implements QRCodeView.De
     private static final int REQUEST_CODE_CHOOSE_QRCODE_FROM_GALLERY = 666;
 
     private ZBarView mZBarView;
+    private EditText content;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,7 @@ public class TestScanActivity extends AppCompatActivity implements QRCodeView.De
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
         mZBarView = findViewById(R.id.zbarview);
+        content = findViewById(R.id.content);
         mZBarView.setDelegate(this);
     }
 
@@ -62,7 +65,7 @@ public class TestScanActivity extends AppCompatActivity implements QRCodeView.De
     public void onScanQRCodeSuccess(String result) {
         setTitle("扫描结果为：" + result);
         vibrate();
-
+        content.setText(result);
         mZBarView.startSpot(); // 开始识别
     }
 

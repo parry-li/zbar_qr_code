@@ -34,5 +34,16 @@
 
     <include layout="@layout/toolbar" />
 
+    <EditText
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
+
+        android:textSize="14sp"
+        android:hint="扫描内容"/>
+
     <include layout="@layout/view_control" />
 </RelativeLayout>

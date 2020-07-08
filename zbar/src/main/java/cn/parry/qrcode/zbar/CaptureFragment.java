@@ -75,7 +75,7 @@ public class CaptureFragment extends Fragment implements QRCodeView.Delegate {
     /*成功扫描结果*/
     @Override
     public void onScanQRCodeSuccess(String result) {
-        Log.d("parry", "result:" + result);
+        Log.d("parry", "ScanQRCode_result:" + result);
         analyzeCallback.onAnalyzeSuccess(result);
 
         vibrate();
